@@ -10,7 +10,6 @@
 //
 
 // MARK: - UIKit
-#if canImport(UIKit)
 import UIKit
 
 public typealias NSUIGestureRecognizer = UIGestureRecognizer
@@ -52,7 +51,6 @@ extension NSUIPanGestureRecognizer
     }
 }
 
-#if !os(tvOS)
 public typealias NSUIPinchGestureRecognizer = UIPinchGestureRecognizer
 public typealias NSUIRotationGestureRecognizer = UIRotationGestureRecognizer
 
@@ -84,89 +82,3 @@ extension NSUIPinchGestureRecognizer
         return super.location(ofTouch: touch, in: inView)
     }
 }
-#endif
-#endif
-
-// MARK: - AppKit
-#if canImport(AppKit) && !targetEnvironment(macCatalyst)
-import AppKit
-
-public typealias NSUIGestureRecognizer = NSGestureRecognizer
-public typealias NSUIGestureRecognizerState = NSGestureRecognizer.State
-public typealias NSUIGestureRecognizerDelegate = NSGestureRecognizerDelegate
-public typealias NSUITapGestureRecognizer = NSClickGestureRecognizer
-public typealias NSUIPanGestureRecognizer = NSPanGestureRecognizer
-public typealias NSUIPinchGestureRecognizer = NSMagnificationGestureRecognizer
-public typealias NSUIRotationGestureRecognizer = NSRotationGestureRecognizer
-
-/** The 'tap' gesture is mapped to clicks. */
-extension NSUITapGestureRecognizer
-{
-    final func nsuiNumberOfTouches() -> Int
-    {
-        return 1
-    }
-
-    final var nsuiNumberOfTapsRequired: Int
-        {
-        get
-        {
-            return self.numberOfClicksRequired
-        }
-        set
-        {
-            self.numberOfClicksRequired = newValue
-        }
-    }
-}
-
-extension NSUIPanGestureRecognizer
-{
-    final func nsuiNumberOfTouches() -> Int
-    {
-        return 1
-    }
-
-    /// FIXME: Currently there are no more than 1 touch in OSX gestures, and not way to create custom touch gestures.
-    final func nsuiLocationOfTouch(_ touch: Int, inView: NSView?) -> NSPoint
-    {
-        return super.location(in: inView)
-    }
-}
-
-extension NSUIRotationGestureRecognizer
-{
-    /// FIXME: Currently there are no velocities in OSX gestures, and not way to create custom touch gestures.
-    final var velocity: CGFloat
-    {
-        return 0.1
-    }
-
-    final var nsuiRotation: CGFloat
-        {
-        get { return -rotation }
-        set { rotation = -newValue }
-    }
-}
-
-extension NSUIPinchGestureRecognizer
-{
-    final var nsuiScale: CGFloat
-        {
-        get
-        {
-            return magnification + 1.0
-        }
-        set
-        {
-            magnification = newValue - 1.0
-        }
-    }
-
-    /// FIXME: Currently there are no more than 1 touch in OSX gestures, and not way to create custom touch gestures.
-    final func nsuiLocationOfTouch(_ touch: Int, inView view: NSView?) -> NSPoint
-    {
-        return super.location(in: view)
-    }
-}
-#endif

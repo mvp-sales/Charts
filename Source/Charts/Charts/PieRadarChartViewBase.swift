@@ -13,10 +13,6 @@ import Foundation
 import CoreGraphics
 import QuartzCore
 
-#if canImport(AppKit)
-import AppKit
-#endif
-
 
 /// Base class of PieChartView and RadarChartView.
 open class PieRadarChartViewBase: ChartViewBase
@@ -37,9 +33,7 @@ open class PieRadarChartViewBase: ChartViewBase
     private var _rotationWithTwoFingers = false
     
     private var _tapGestureRecognizer: NSUITapGestureRecognizer!
-    #if !os(tvOS)
     private var _rotationGestureRecognizer: NSUIRotationGestureRecognizer!
-    #endif
     
     public override init(frame: CGRect)
     {
@@ -64,11 +58,9 @@ open class PieRadarChartViewBase: ChartViewBase
         
         self.addGestureRecognizer(_tapGestureRecognizer)
 
-        #if !os(tvOS)
         _rotationGestureRecognizer = NSUIRotationGestureRecognizer(target: self, action: #selector(rotationGestureRecognized(_:)))
         self.addGestureRecognizer(_rotationGestureRecognizer)
         _rotationGestureRecognizer.isEnabled = rotationWithTwoFingers
-        #endif
     }
     
     internal override func calcMinMax()
@@ -408,9 +400,7 @@ open class PieRadarChartViewBase: ChartViewBase
         set
         {
             _rotationWithTwoFingers = newValue
-            #if !os(tvOS)
             _rotationGestureRecognizer.isEnabled = _rotationWithTwoFingers
-            #endif
         }
     }
     
@@ -547,7 +537,6 @@ open class PieRadarChartViewBase: ChartViewBase
         }
     }
     
-    #if !os(OSX)
     open override func nsuiTouchesBegan(_ touches: Set<NSUITouch>, withEvent event: NSUIEvent?)
     {
         // if rotation by touch is enabled
@@ -606,62 +595,6 @@ open class PieRadarChartViewBase: ChartViewBase
         
         processRotationGestureCancelled()
     }
-    #endif
-    
-    #if os(OSX)
-    open override func mouseDown(with theEvent: NSEvent)
-    {
-        // if rotation by touch is enabled
-        if rotationEnabled
-        {
-            stopDeceleration()
-        
-            let location = self.convert(theEvent.locationInWindow, from: nil)
-            
-            processRotationGestureBegan(location: location)
-        }
-        
-        if !_isRotating
-        {
-            super.mouseDown(with: theEvent)
-        }
-    }
-    
-    open override func mouseDragged(with theEvent: NSEvent)
-    {
-        if rotationEnabled
-        {
-            let location = self.convert(theEvent.locationInWindow, from: nil)
-            
-            processRotationGestureMoved(location: location)
-        }
-        
-        if !_isRotating
-        {
-            super.mouseDragged(with: theEvent)
-        }
-    }
-    
-    open override func mouseUp(with theEvent: NSEvent)
-    {
-        if !_isRotating
-        {
-            super.mouseUp(with: theEvent)
-        }
-        
-        if rotationEnabled
-        {
-            let location = self.convert(theEvent.locationInWindow, from: nil)
-            
-            processRotationGestureEnded(location: location)
-        }
-        
-        if _isRotating
-        {
-            _isRotating = false
-        }
-    }
-    #endif
     
     private func resetVelocity()
     {
@@ -811,7 +744,6 @@ open class PieRadarChartViewBase: ChartViewBase
         }
     }
     
-    #if !os(tvOS)
     @objc private func rotationGestureRecognized(_ recognizer: NSUIRotationGestureRecognizer)
     {
         if recognizer.state == NSUIGestureRecognizerState.began
@@ -850,5 +782,4 @@ open class PieRadarChartViewBase: ChartViewBase
             }
         }
     }
-    #endif
 }

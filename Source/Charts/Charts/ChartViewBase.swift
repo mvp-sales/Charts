@@ -12,14 +12,7 @@
 
 import Foundation
 import CoreGraphics
-
-#if canImport(UIKit)
 import UIKit
-#endif
-
-#if canImport(AppKit)
-import AppKit
-#endif
 
 @objc
 public protocol ChartViewDelegate
@@ -181,9 +174,7 @@ open class ChartViewBase: NSUIView, ChartDataProvider, AnimatorDelegate
     
     internal func initialize()
     {
-        #if os(iOS)
-            self.backgroundColor = .clear
-        #endif
+        self.backgroundColor = .clear
 
         addObserver(self, forKeyPath: "bounds", options: .new, context: nil)
         addObserver(self, forKeyPath: "frame", options: .new, context: nil)

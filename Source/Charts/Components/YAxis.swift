@@ -11,15 +11,7 @@
 
 import Foundation
 import CoreGraphics
-
-#if canImport(UIKit)
-    import UIKit
-#endif
-
-#if canImport(Cocoa)
-import Cocoa
-#endif
-
+import UIKit
 
 /// Class representing the y-axis labels settings and its entries.
 /// Be aware that not all features the YLabels class provides are suitable for the RadarChart.

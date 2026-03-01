@@ -9,7 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-#if canImport(UIKit)
 import UIKit
 
 public typealias NSUIColor = UIColor
@@ -30,28 +29,3 @@ extension UIColor
 {
     static var labelOrBlack: UIColor { labelColor }
 }
-#endif
-
-#if canImport(AppKit) && !targetEnvironment(macCatalyst)
-
-import AppKit
-
-public typealias NSUIColor = NSColor
-private func fetchLabelColor() -> NSColor
-{
-    if #available(macOS 10.14, *)
-    {
-        return .labelColor
-    }
-    else
-    {
-        return .black
-    }
-}
-private let labelColor: NSColor = fetchLabelColor()
-
-extension NSColor
-{
-    static var labelOrBlack: NSColor { labelColor }
-}
-#endif

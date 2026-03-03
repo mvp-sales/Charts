@@ -9,7 +9,7 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import CoreGraphics
+import UIKit
 
 open class YAxisRendererHorizontalBarChart: YAxisRenderer
 {
@@ -115,7 +115,7 @@ open class YAxisRendererHorizontalBarChart: YAxisRenderer
     }
 
     /// draws the y-labels on the specified x-position
-    @objc open func drawYLabels(
+    open func drawYLabels(
         context: CGContext,
         fixedPosition: CGFloat,
         positions: [CGPoint],

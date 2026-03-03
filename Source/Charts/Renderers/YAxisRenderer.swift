@@ -9,7 +9,7 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import CoreGraphics
+import UIKit
 
 open class YAxisRenderer: AxisRenderer
 {

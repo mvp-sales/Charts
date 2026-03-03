@@ -84,7 +84,7 @@ open class CandleChartDataSet: LineScatterCandleRadarChartDataSet, CandleChartDa
     open var shadowWidth = CGFloat(1.5)
     
     /// the color of the shadow line
-    open var shadowColor: NSUIColor?
+    open var shadowColor: UIColor?
     
     /// use candle color for the shadow
     open var shadowColorSameAsCandle = false
@@ -93,13 +93,13 @@ open class CandleChartDataSet: LineScatterCandleRadarChartDataSet, CandleChartDa
     open var isShadowColorSameAsCandle: Bool { return shadowColorSameAsCandle }
     
     /// color for open == close
-    open var neutralColor: NSUIColor?
+    open var neutralColor: UIColor?
     
     /// color for open > close
-    open var increasingColor: NSUIColor?
+    open var increasingColor: UIColor?
     
     /// color for open < close
-    open var decreasingColor: NSUIColor?
+    open var decreasingColor: UIColor?
     
     /// Are increasing values drawn as filled?
     /// increasing candlesticks are traditionally hollow

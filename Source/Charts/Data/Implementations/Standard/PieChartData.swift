@@ -28,7 +28,7 @@ open class PieChartData: ChartData
         super.init(dataSets: elements)
     }
 
-    @objc public var dataSet: PieChartDataSetProtocol?
+    public var dataSet: PieChartDataSetProtocol?
     {
         get
         {
@@ -48,7 +48,7 @@ open class PieChartData: ChartData
     }
 
     /// - returns: All up to one dataSet object this ChartData object holds.
-    @objc open override var dataSets: [ChartDataSetProtocol]
+    open override var dataSets: [ChartDataSetProtocol]
     {
         get
         {
@@ -91,13 +91,13 @@ open class PieChartData: ChartData
         return nil
     }
     
-    @objc override open func entry(for highlight: Highlight) -> ChartDataEntry?
+    override open func entry(for highlight: Highlight) -> ChartDataEntry?
     {
         return dataSet?.entryForIndex(Int(highlight.x))
     }
     
     /// The total y-value sum across all DataSet objects the this object represents.
-    @objc open var yValueSum: Double
+    open var yValueSum: Double
     {
         guard let dataSet = dataSet else { return 0.0 }
         return (0..<dataSet.entryCount).reduce(into: 0) {

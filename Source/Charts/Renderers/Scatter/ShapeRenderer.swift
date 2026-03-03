@@ -12,7 +12,6 @@
 import Foundation
 import CoreGraphics
 
-@objc
 public protocol ShapeRenderer: AnyObject
 {
     /// Renders the provided ScatterDataSet with a shape.
@@ -28,5 +27,5 @@ public protocol ShapeRenderer: AnyObject
         dataSet: ScatterChartDataSetProtocol,
         viewPortHandler: ViewPortHandler,
         point: CGPoint,
-        color: NSUIColor)
+        color: UIColor)
 }

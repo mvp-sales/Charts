@@ -20,13 +20,13 @@ open class AnimatedViewPortJob: ViewPortJob
     internal var yOrigin: CGFloat = 0.0
     
     private var _startTime: TimeInterval = 0.0
-    private var _displayLink: NSUIDisplayLink!
+    private var _displayLink: CADisplayLink!
     private var _duration: TimeInterval = 0.0
     private var _endTime: TimeInterval = 0.0
     
     private var _easing: ChartEasingFunctionBlock?
     
-    @objc public init(
+    public init(
         viewPortHandler: ViewPortHandler,
         xValue: Double,
         yValue: Double,
@@ -59,7 +59,7 @@ open class AnimatedViewPortJob: ViewPortJob
         start()
     }
     
-    @objc open func start()
+    open func start()
     {
         _startTime = CACurrentMediaTime()
         _endTime = _startTime + _duration
@@ -67,11 +67,11 @@ open class AnimatedViewPortJob: ViewPortJob
         
         updateAnimationPhase(_startTime)
         
-        _displayLink = NSUIDisplayLink(target: self, selector: #selector(animationLoop))
+        _displayLink = CADisplayLink(target: self, selector: #selector(animationLoop))
         _displayLink.add(to: .main, forMode: RunLoop.Mode.common)
     }
     
-    @objc open func stop(finish: Bool)
+    open func stop(finish: Bool)
     {
         guard _displayLink != nil else { return }
 

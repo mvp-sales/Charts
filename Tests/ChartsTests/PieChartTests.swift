@@ -36,7 +36,7 @@ class PieChartTests: XCTestCase {
 
         
         chart = PieChartView(frame: CGRect(x: 0, y: 0, width: 480, height: 350))
-        chart.backgroundColor = NSUIColor.clear
+        chart.backgroundColor = UIColor.clear
         chart.centerText = "PieChart Unit Test"
         chart.data = PieChartData(dataSet: dataSet)
     }

@@ -12,7 +12,6 @@
 import Foundation
 
 /// Determines how to round DataSet index values for `ChartDataSet.entryIndex(x, rounding)` when an exact x-value is not found.
-@objc
 public enum ChartDataSetRounding: Int
 {
     case up = 0
@@ -36,7 +35,7 @@ open class ChartDataSet: ChartBaseDataSet
         self.init(entries: [], label: label)
     }
     
-    @objc public init(entries: [ChartDataEntry], label: String)
+    public init(entries: [ChartDataEntry], label: String)
     {
         self.entries = entries 
 
@@ -45,7 +44,7 @@ open class ChartDataSet: ChartBaseDataSet
         self.calcMinMax()
     }
     
-    @objc public convenience init(entries: [ChartDataEntry])
+    public convenience init(entries: [ChartDataEntry])
     {
         self.init(entries: entries, label: "DataSet")
     }
@@ -55,7 +54,6 @@ open class ChartDataSet: ChartBaseDataSet
     /// - Note: Calls `notifyDataSetChanged()` after setting a new value.
     /// - Returns: The array of y-values that this DataSet represents.
     /// the entries that this dataset represents / holds together
-    @objc
     open private(set) var entries: [ChartDataEntry]
 
     /// Used to replace all entries of a data set while retaining styling properties.
@@ -63,7 +61,6 @@ open class ChartDataSet: ChartBaseDataSet
     /// of `Collection` conformances.
     ///
     /// - Parameter entries: new entries to replace existing entries in the dataset
-    @objc
     public func replaceEntries(_ entries: [ChartDataEntry]) {
         self.entries = entries
         notifyDataSetChanged()
@@ -109,13 +106,13 @@ open class ChartDataSet: ChartBaseDataSet
         self[indexFrom...indexTo].forEach(calcMinMaxY)
     }
     
-    @objc open func calcMinMaxX(entry e: ChartDataEntry)
+    open func calcMinMaxX(entry e: ChartDataEntry)
     {
         _xMin = Swift.min(e.x, _xMin)
         _xMax = Swift.max(e.x, _xMax)
     }
     
-    @objc open func calcMinMaxY(entry e: ChartDataEntry)
+    open func calcMinMaxY(entry e: ChartDataEntry)
     {
         _yMin = Swift.min(e.y, _yMin)
         _yMax = Swift.max(e.y, _yMax)
@@ -132,16 +129,16 @@ open class ChartDataSet: ChartBaseDataSet
     }
     
     /// The minimum y-value this DataSet holds
-    @objc open override var yMin: Double { return _yMin }
+    open override var yMin: Double { return _yMin }
     
     /// The maximum y-value this DataSet holds
-    @objc open override var yMax: Double { return _yMax }
+    open override var yMax: Double { return _yMax }
     
     /// The minimum x-value this DataSet holds
-    @objc open override var xMin: Double { return _xMin }
+    open override var xMin: Double { return _xMin }
     
     /// The maximum x-value this DataSet holds
-    @objc open override var xMax: Double { return _xMax }
+    open override var xMax: Double { return _xMax }
     
     /// The number of y-values this DataSet represents
     @available(*, deprecated, message: "Use `count` instead")
@@ -378,23 +375,6 @@ open class ChartDataSet: ChartBaseDataSet
     {
         removeAll(keepingCapacity: true)
     }
-    
-    // MARK: - Data functions and accessors
-    
-    // MARK: - NSCopying
-    
-    open override func copy(with zone: NSZone? = nil) -> Any
-    {
-        let copy = super.copy(with: zone) as! ChartDataSet
-        
-        copy.entries = entries
-        copy._yMax = _yMax
-        copy._yMin = _yMin
-        copy._xMax = _xMax
-        copy._xMin = _xMin
-
-        return copy
-    }
 }
 
 // MARK: MutableCollection
@@ -414,7 +394,6 @@ extension ChartDataSet: MutableCollection {
         return entries.index(after: after)
     }
 
-    @objc
     public subscript(position: Index) -> Element {
         get {
             // This is intentionally not a safe subscript to mirror
@@ -480,7 +459,6 @@ extension ChartDataSet: RangeReplaceableCollection {
         notifyDataSetChanged()
     }
 
-    @objc
     public func removeAll(keepingCapacity keepCapacity: Bool) {
         entries.removeAll(keepingCapacity: keepCapacity)
         notifyDataSetChanged()

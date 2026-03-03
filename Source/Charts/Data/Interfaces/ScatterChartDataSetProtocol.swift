@@ -12,7 +12,6 @@
 import Foundation
 import CoreGraphics
 
-@objc
 public protocol ScatterChartDataSetProtocol: LineScatterCandleRadarChartDataSetProtocol
 {
     // MARK: - Data functions and accessors
@@ -29,7 +28,7 @@ public protocol ScatterChartDataSetProtocol: LineScatterCandleRadarChartDataSetP
     
     /// - Returns: Color for the hole in the shape. Setting to `nil` will behave as transparent.
     /// **default**: nil
-    var scatterShapeHoleColor: NSUIColor? { get }
+    var scatterShapeHoleColor: UIColor? { get }
     
     /// - Returns: The ShapeRenderer responsible for rendering this DataSet.
     var shapeRenderer: ShapeRenderer? { get }

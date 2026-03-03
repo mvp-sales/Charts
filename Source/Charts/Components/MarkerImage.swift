@@ -12,22 +12,20 @@
 import Foundation
 import CoreGraphics
 
-@objc(ChartMarkerImage)
-open class MarkerImage: NSObject, Marker
+open class MarkerImage: Marker
 {
     /// The marker image to render
-    @objc open var image: NSUIImage?
+    open var image: UIImage?
     
     open var offset: CGPoint = CGPoint()
     
-    @objc open weak var chartView: ChartViewBase?
+    open weak var chartView: ChartViewBase?
     
     /// As long as size is 0.0/0.0 - it will default to the image's size
-    @objc open var size: CGSize = CGSize()
+    open var size: CGSize = CGSize()
     
-    public override init()
-    {
-        super.init()
+    public init() {
+        
     }
     
     open func offsetForDrawing(atPoint point: CGPoint) -> CGPoint
@@ -99,8 +97,8 @@ open class MarkerImage: NSObject, Marker
             width: size.width,
             height: size.height)
         
-        NSUIGraphicsPushContext(context)
+        UIGraphicsPushContext(context)
         image.draw(in: rect)
-        NSUIGraphicsPopContext()
+        UIGraphicsPopContext()
     }
 }

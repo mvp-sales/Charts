@@ -13,24 +13,20 @@ import Foundation
 import CoreGraphics
 
 
-open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
+open class ChartBaseDataSet: ChartDataSetProtocol
 {
-    public required override init()
-    {
-        super.init()
+    public required init() {
         
         // default color
-        colors.append(NSUIColor(red: 140.0/255.0, green: 234.0/255.0, blue: 255.0/255.0, alpha: 1.0))
-        valueColors.append(.labelOrBlack)
+        colors.append(UIColor(red: 140.0/255.0, green: 234.0/255.0, blue: 255.0/255.0, alpha: 1.0))
+        valueColors.append(.label)
     }
     
-    @objc public init(label: String)
-    {
-        super.init()
+    public init(label: String) {
         
         // default color
-        colors.append(NSUIColor(red: 140.0/255.0, green: 234.0/255.0, blue: 255.0/255.0, alpha: 1.0))
-        valueColors.append(.labelOrBlack)
+        colors.append(UIColor(red: 140.0/255.0, green: 234.0/255.0, blue: 255.0/255.0, alpha: 1.0))
+        valueColors.append(.label)
         
         self.label = label
     }
@@ -187,10 +183,10 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     
     /// All the colors that are used for this DataSet.
     /// Colors are reused as soon as the number of Entries the DataSet represents is higher than the size of the colors array.
-    open var colors = [NSUIColor]()
+    open var colors = [UIColor]()
     
     /// List representing all colors that are used for drawing the actual values for this DataSet
-    open var valueColors = [NSUIColor]()
+    open var valueColors = [UIColor]()
 
     /// The label string that describes the DataSet.
     open var label: String? = "DataSet"
@@ -200,7 +196,7 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     
     /// - Returns: The color at the given index of the DataSet's color array.
     /// This prevents out-of-bounds by performing a modulus on the color index, so colours will repeat themselves.
-    open func color(atIndex index: Int) -> NSUIColor
+    open func color(atIndex index: Int) -> UIColor
     {
         var index = index
         if index < 0
@@ -220,7 +216,7 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     ///
     /// - Parameters:
     ///   - color: the color to add
-    open func addColor(_ color: NSUIColor)
+    open func addColor(_ color: UIColor)
     {
         colors.append(color)
     }
@@ -230,7 +226,7 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     ///
     /// - Parameters:
     ///   - color: the color to set
-    open func setColor(_ color: NSUIColor)
+    open func setColor(_ color: UIColor)
     {
         colors.removeAll(keepingCapacity: false)
         colors.append(color)
@@ -241,7 +237,7 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     /// - Parameters:
     ///   - color: the color to set
     ///   - alpha: alpha to apply to the set `color`
-    @objc open func setColor(_ color: NSUIColor, alpha: CGFloat)
+    open func setColor(_ color: UIColor, alpha: CGFloat)
     {
         setColor(color.withAlphaComponent(alpha))
     }
@@ -251,7 +247,7 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     /// - Parameters:
     ///   - colors: the colors to set
     ///   - alpha: alpha to apply to the set `colors`
-    @objc open func setColors(_ colors: [NSUIColor], alpha: CGFloat)
+    open func setColors(_ colors: [UIColor], alpha: CGFloat)
     {
         self.colors = colors.map { $0.withAlphaComponent(alpha) }
     }
@@ -261,7 +257,7 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     /// - Parameters:
     ///   - colors: the colors to set
     ///   - alpha: alpha to apply to the set `colors`
-    open func setColors(_ colors: NSUIColor...)
+    open func setColors(_ colors: UIColor...)
     {
         self.colors = colors
     }
@@ -278,7 +274,7 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     /// Sets/get a single color for value text.
     /// Setting the color clears the colors array and adds a single color.
     /// Getting will return the first color in the array.
-    open var valueTextColor: NSUIColor
+    open var valueTextColor: UIColor
     {
         get
         {
@@ -292,7 +288,7 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     }
     
     /// - Returns: The color at the specified index that is used for drawing the values inside the chart. Uses modulus internally.
-    open func valueTextColorAt(_ index: Int) -> NSUIColor
+    open func valueTextColorAt(_ index: Int) -> UIColor
     {
         var index = index
         if index < 0
@@ -303,7 +299,7 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     }
     
     /// the font for the value-text labels
-    open var valueFont: NSUIFont = NSUIFont.systemFont(ofSize: 7.0)
+    open var valueFont: UIFont = UIFont.systemFont(ofSize: 7.0)
     
     /// The rotation angle (in degrees) for value-text labels
     open var valueLabelAngle: CGFloat = CGFloat(0.0)
@@ -373,41 +369,15 @@ open class ChartBaseDataSet: NSObject, ChartDataSetProtocol, NSCopying
     
     // MARK: - NSObject
     
-    open override var description: String
+    var description: String
     {
         return String(format: "%@, label: %@, %i entries", arguments: [NSStringFromClass(type(of: self)), self.label ?? "", self.entryCount])
     }
     
-    open override var debugDescription: String
+    var debugDescription: String
     {
         return (0..<entryCount).reduce(description + ":") {
             "\($0)\n\(self.entryForIndex($1)?.description ?? "")"
         }
-    }
-    
-    // MARK: - NSCopying
-    
-    open func copy(with zone: NSZone? = nil) -> Any 
-    {
-        let copy = type(of: self).init()
-        
-        copy.colors = colors
-        copy.valueColors = valueColors
-        copy.label = label
-        copy.axisDependency = axisDependency
-        copy.highlightEnabled = highlightEnabled
-        copy.valueFormatter = valueFormatter
-        copy.valueFont = valueFont
-        copy.form = form
-        copy.formSize = formSize
-        copy.formLineWidth = formLineWidth
-        copy.formLineDashPhase = formLineDashPhase
-        copy.formLineDashLengths = formLineDashLengths
-        copy.drawValuesEnabled = drawValuesEnabled
-        copy.drawIconsEnabled = drawIconsEnabled
-        copy.iconsOffset = iconsOffset
-        copy.visible = visible
-        
-        return copy
     }
 }

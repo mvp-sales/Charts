@@ -11,14 +11,14 @@
 import Foundation
 import CoreGraphics
 
-open class TriangleShapeRenderer : NSObject, ShapeRenderer
+open class TriangleShapeRenderer : ShapeRenderer
 {
     open func renderShape(
         context: CGContext,
         dataSet: ScatterChartDataSetProtocol,
         viewPortHandler: ViewPortHandler,
         point: CGPoint,
-        color: NSUIColor)
+        color: UIColor)
     {
         let shapeSize = dataSet.scatterShapeSize
         let shapeHalf = shapeSize / 2.0

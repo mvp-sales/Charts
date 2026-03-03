@@ -12,14 +12,13 @@
 import Foundation
 import CoreGraphics
 
-@objc
 public protocol BarLineScatterCandleBubbleChartDataSetProtocol: ChartDataSetProtocol
 {
     // MARK: - Data functions and accessors
     
     // MARK: - Styling functions and accessors
     
-    var highlightColor: NSUIColor { get set }
+    var highlightColor: UIColor { get set }
     var highlightLineWidth: CGFloat { get set }
     var highlightLineDashPhase: CGFloat { get set }
     var highlightLineDashLengths: [CGFloat]? { get set }

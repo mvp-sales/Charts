@@ -12,7 +12,6 @@
 import Foundation
 import CoreGraphics
 
-@objc
 public protocol LineRadarChartDataSetProtocol: LineScatterCandleRadarChartDataSetProtocol
 {
     // MARK: - Data functions and accessors
@@ -20,7 +19,7 @@ public protocol LineRadarChartDataSetProtocol: LineScatterCandleRadarChartDataSe
     // MARK: - Styling functions and accessors
     
     /// The color that is used for filling the line surface area.
-    var fillColor: NSUIColor { get set }
+    var fillColor: UIColor { get set }
 
     /// - Returns: The object that is used for filling the area below the line.
     /// **default**: nil

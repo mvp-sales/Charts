@@ -12,8 +12,7 @@
 import Foundation
 import CoreGraphics
 
-@objc
-public protocol ChartDataSetProtocol
+public protocol ChartDataSetProtocol: AnyObject
 {
     // MARK: - Data functions and accessors
     
@@ -173,21 +172,21 @@ public protocol ChartDataSetProtocol
     var axisDependency: YAxis.AxisDependency { get }
     
     /// List representing all colors that are used for drawing the actual values for this DataSet
-    var valueColors: [NSUIColor] { get }
+    var valueColors: [UIColor] { get }
     
     /// All the colors that are used for this DataSet.
     /// Colors are reused as soon as the number of Entries the DataSet represents is higher than the size of the colors array.
-    var colors: [NSUIColor] { get }
+    var colors: [UIColor] { get }
     
     /// - Returns: The color at the given index of the DataSet's color array.
     /// This prevents out-of-bounds by performing a modulus on the color index, so colours will repeat themselves.
-    func color(atIndex: Int) -> NSUIColor
+    func color(atIndex: Int) -> UIColor
     
     func resetColors()
     
-    func addColor(_ color: NSUIColor)
+    func addColor(_ color: UIColor)
     
-    func setColor(_ color: NSUIColor)
+    func setColor(_ color: UIColor)
     
     /// if true, value highlighting is enabled
     var highlightEnabled: Bool { get set }
@@ -201,13 +200,13 @@ public protocol ChartDataSetProtocol
     /// Sets/get a single color for value text.
     /// Setting the color clears the colors array and adds a single color.
     /// Getting will return the first color in the array.
-    var valueTextColor: NSUIColor { get set }
+    var valueTextColor: UIColor { get set }
     
     /// - Returns: The color at the specified index that is used for drawing the values inside the chart. Uses modulus internally.
-    func valueTextColorAt(_ index: Int) -> NSUIColor
+    func valueTextColorAt(_ index: Int) -> UIColor
     
     /// the font for the value-text labels
-    var valueFont: NSUIFont { get set }
+    var valueFont: UIFont { get set }
     
     /// The rotation angle (in degrees) for value-text labels
     var valueLabelAngle: CGFloat { get set }

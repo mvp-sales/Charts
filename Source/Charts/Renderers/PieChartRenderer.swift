@@ -14,7 +14,7 @@ import CoreGraphics
 import UIKit
 
 
-open class PieChartRenderer: NSObject, DataRenderer
+open class PieChartRenderer: DataRenderer
 {
     public let viewPortHandler: ViewPortHandler
     
@@ -22,15 +22,13 @@ open class PieChartRenderer: NSObject, DataRenderer
 
     public let animator: Animator
 
-    @objc open weak var chart: PieChartView?
+    open weak var chart: PieChartView?
 
-    @objc public init(chart: PieChartView, animator: Animator, viewPortHandler: ViewPortHandler)
+    public init(chart: PieChartView, animator: Animator, viewPortHandler: ViewPortHandler)
     {
         self.viewPortHandler = viewPortHandler
         self.animator = animator
         self.chart = chart
-
-        super.init()
     }
     
     open func drawData(context: CGContext)
@@ -47,7 +45,7 @@ open class PieChartRenderer: NSObject, DataRenderer
         }
     }
 
-    @objc open func calculateMinimumRadiusForSpacedSlice(
+    open func calculateMinimumRadiusForSpacedSlice(
         center: CGPoint,
         radius: CGFloat,
         angle: CGFloat,
@@ -89,7 +87,7 @@ open class PieChartRenderer: NSObject, DataRenderer
     }
 
     /// Calculates the sliceSpace to use based on visible values and their size compared to the set sliceSpace.
-    @objc open func getSliceSpace(dataSet: PieChartDataSetProtocol) -> CGFloat
+    open func getSliceSpace(dataSet: PieChartDataSetProtocol) -> CGFloat
     {
         guard
             dataSet.automaticallyDisableSliceSpacing,
@@ -106,7 +104,7 @@ open class PieChartRenderer: NSObject, DataRenderer
         return sliceSpace
     }
 
-    @objc open func drawDataSet(context: CGContext, dataSet: PieChartDataSetProtocol)
+    open func drawDataSet(context: CGContext, dataSet: PieChartDataSetProtocol)
     {
         guard let chart = chart else {return }
 
@@ -394,7 +392,7 @@ open class PieChartRenderer: NSObject, DataRenderer
 
                     var pt2: CGPoint
                     var labelPoint: CGPoint
-                    var align: TextAlignment
+                    var align: NSTextAlignment
 
                     var line1Radius: CGFloat
 
@@ -595,7 +593,7 @@ open class PieChartRenderer: NSObject, DataRenderer
 
             if let holeColor = chart.holeColor
             {
-                if holeColor != NSUIColor.clear
+                if holeColor != UIColor.clear
                 {
                     // draw the hole-circle
                     context.setFillColor(chart.holeColor!.cgColor)
@@ -606,7 +604,7 @@ open class PieChartRenderer: NSObject, DataRenderer
             // only draw the circle if it can be seen (not covered by the hole)
             if let transparentCircleColor = chart.transparentCircleColor
             {
-                if transparentCircleColor != NSUIColor.clear &&
+                if transparentCircleColor != UIColor.clear &&
                     chart.transparentCircleRadiusPercent > chart.holeRadiusPercent
                 {
                     let alpha = animator.phaseX * animator.phaseY

@@ -89,29 +89,29 @@ extension CGPoint {
 extension CGContext
 {
 
-    public func drawImage(_ image: NSUIImage, atCenter center: CGPoint, size: CGSize)
+    public func drawImage(_ image: UIImage, atCenter center: CGPoint, size: CGSize)
     {
         var drawOffset = CGPoint()
         drawOffset.x = center.x - (size.width / 2)
         drawOffset.y = center.y - (size.height / 2)
 
-        NSUIGraphicsPushContext(self)
+        UIGraphicsPushContext(self)
 
         if image.size.width != size.width && image.size.height != size.height
         {
             let key = "resized_\(size.width)_\(size.height)"
 
             // Try to take scaled image from cache of this image
-            var scaledImage = objc_getAssociatedObject(image, key) as? NSUIImage
+            var scaledImage = objc_getAssociatedObject(image, key) as? UIImage
             if scaledImage == nil
             {
                 // Scale the image
-                NSUIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+                UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
 
                 image.draw(in: CGRect(origin: .zero, size: size))
 
-                scaledImage = NSUIGraphicsGetImageFromCurrentImageContext()
-                NSUIGraphicsEndImageContext()
+                scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
 
                 // Put the scaled image in a cache owned by the original image
                 objc_setAssociatedObject(image, key, scaledImage, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -124,20 +124,20 @@ extension CGContext
             image.draw(in: CGRect(origin: drawOffset, size: size))
         }
 
-        NSUIGraphicsPopContext()
+        UIGraphicsPopContext()
     }
 
-    public func drawText(_ text: String, at point: CGPoint, align: TextAlignment, anchor: CGPoint = CGPoint(x: 0.5, y: 0.5), angleRadians: CGFloat = 0.0, attributes: [NSAttributedString.Key : Any]?)
+    public func drawText(_ text: String, at point: CGPoint, align: NSTextAlignment, anchor: CGPoint = CGPoint(x: 0.5, y: 0.5), angleRadians: CGFloat = 0.0, attributes: [NSAttributedString.Key : Any]?)
     {
         let drawPoint = getDrawPoint(text: text, point: point, align: align, attributes: attributes)
         
         if (angleRadians == 0.0)
         {
-            NSUIGraphicsPushContext(self)
+            UIGraphicsPushContext(self)
             
             (text as NSString).draw(at: drawPoint, withAttributes: attributes)
             
-            NSUIGraphicsPopContext()
+            UIGraphicsPopContext()
         }
         else
         {
@@ -149,7 +149,7 @@ extension CGContext
     {
         var drawOffset = CGPoint()
 
-        NSUIGraphicsPushContext(self)
+        UIGraphicsPushContext(self)
 
         if angleRadians != 0.0
         {
@@ -194,10 +194,10 @@ extension CGContext
             (text as NSString).draw(at: drawOffset, withAttributes: attributes)
         }
 
-        NSUIGraphicsPopContext()
+        UIGraphicsPopContext()
     }
 
-    private func getDrawPoint(text: String, point: CGPoint, align: TextAlignment, attributes: [NSAttributedString.Key : Any]?) -> CGPoint
+    private func getDrawPoint(text: String, point: CGPoint, align: NSTextAlignment, attributes: [NSAttributedString.Key : Any]?) -> CGPoint
     {
         var point = point
         
@@ -216,7 +216,7 @@ extension CGContext
     {
         var rect = CGRect(origin: .zero, size: knownTextSize)
 
-        NSUIGraphicsPushContext(self)
+        UIGraphicsPushContext(self)
 
         if angleRadians != 0.0
         {
@@ -257,7 +257,7 @@ extension CGContext
             (text as NSString).draw(with: rect, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
         }
 
-        NSUIGraphicsPopContext()
+        UIGraphicsPopContext()
     }
 
     func drawMultilineText(_ text: String, at point: CGPoint, constrainedTo size: CGSize, anchor: CGPoint, angleRadians: CGFloat, attributes: [NSAttributedString.Key : Any]?)

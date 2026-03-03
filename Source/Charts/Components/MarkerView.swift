@@ -12,12 +12,11 @@
 import Foundation
 import CoreGraphics
 
-@objc(ChartMarkerView)
-open class MarkerView: NSUIView, Marker
+open class MarkerView: UIView, Marker
 {
     open var offset: CGPoint = CGPoint()
     
-    @objc open weak var chartView: ChartViewBase?
+    open weak var chartView: ChartViewBase?
     
     open func offsetForDrawing(atPoint point: CGPoint) -> CGPoint
     {
@@ -61,13 +60,12 @@ open class MarkerView: NSUIView, Marker
         context.saveGState()
         context.translateBy(x: point.x + offset.x,
                               y: point.y + offset.y)
-        NSUIGraphicsPushContext(context)
-        self.nsuiLayer?.render(in: context)
-        NSUIGraphicsPopContext()
+        UIGraphicsPushContext(context)
+        self.layer.render(in: context)
+        UIGraphicsPopContext()
         context.restoreGState()
     }
     
-    @objc
     open class func viewFromXib(in bundle: Bundle = .main) -> MarkerView?
     {
         return bundle.loadNibNamed(

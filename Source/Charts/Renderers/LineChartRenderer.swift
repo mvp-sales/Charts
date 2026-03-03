@@ -20,9 +20,9 @@ open class LineChartRenderer: LineRadarRenderer
     /// A nested array of elements ordered logically (i.e not in visual/drawing order) for use with VoiceOver.
     private lazy var accessibilityOrderedElements: [[NSUIAccessibilityElement]] = accessibilityCreateEmptyOrderedElements()
 
-    @objc open weak var dataProvider: LineChartDataProvider?
+    open weak var dataProvider: LineChartDataProvider?
     
-    @objc public init(dataProvider: LineChartDataProvider, animator: Animator, viewPortHandler: ViewPortHandler)
+    public init(dataProvider: LineChartDataProvider, animator: Animator, viewPortHandler: ViewPortHandler)
     {
         super.init(animator: animator, viewPortHandler: viewPortHandler)
         
@@ -42,7 +42,7 @@ open class LineChartRenderer: LineRadarRenderer
             .forEach(drawDataSet)
     }
     
-    @objc open func drawDataSet(context: CGContext, dataSet: LineChartDataSetProtocol)
+    open func drawDataSet(context: CGContext, dataSet: LineChartDataSetProtocol)
     {
         if dataSet.entryCount < 1
         {
@@ -83,7 +83,7 @@ open class LineChartRenderer: LineRadarRenderer
     private func drawLine(
         context: CGContext,
         spline: CGMutablePath,
-        drawingColor: NSUIColor)
+        drawingColor: UIColor)
     {
         context.beginPath()
         context.addPath(spline)
@@ -91,7 +91,7 @@ open class LineChartRenderer: LineRadarRenderer
         context.strokePath()
     }
     
-    @objc open func drawCubicBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
+    open func drawCubicBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -186,7 +186,7 @@ open class LineChartRenderer: LineRadarRenderer
         }
     }
     
-    @objc open func drawHorizontalBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
+    open func drawHorizontalBezier(context: CGContext, dataSet: LineChartDataSetProtocol)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -295,7 +295,7 @@ open class LineChartRenderer: LineRadarRenderer
     
     private var _lineSegments = [CGPoint](repeating: CGPoint(), count: 2)
     
-    @objc open func drawLinear(context: CGContext, dataSet: LineChartDataSetProtocol)
+    open func drawLinear(context: CGContext, dataSet: LineChartDataSetProtocol)
     {
         guard let dataProvider = dataProvider else { return }
         
@@ -656,7 +656,7 @@ open class LineChartRenderer: LineRadarRenderer
                 circleHoleRadius > 0.0
             let drawTransparentCircleHole = drawCircleHole &&
                 (dataSet.circleHoleColor == nil ||
-                    dataSet.circleHoleColor == NSUIColor.clear)
+                    dataSet.circleHoleColor == UIColor.clear)
             
             for j in _xBounds
             {
@@ -827,9 +827,15 @@ open class LineChartRenderer: LineRadarRenderer
         let gradientColorComponents: [CGFloat] = dataSet.colors
             .reversed()
             .reduce(into: []) { (components, color) in
-                guard let (r, g, b, a) = color.nsuirgba else {
+                var r: CGFloat = 0
+                var g: CGFloat = 0
+                var b: CGFloat = 0
+                var a: CGFloat = 0
+
+                guard color.getRed(&r, green: &g, blue: &b, alpha: &a) else {
                     return
                 }
+
                 components += [r, g, b, a]
             }
         let gradientLocations: [CGFloat] = gradientPositions.reversed()

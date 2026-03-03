@@ -6,9 +6,7 @@
 //  Copyright © 2017 jc. All rights reserved.
 //
 
-#if canImport(UIKit)
-    import UIKit
-#endif
+import UIKit
 import DGCharts
 
 class PositiveNegativeBarChartViewController: DemoBaseViewController {
@@ -91,7 +89,7 @@ class PositiveNegativeBarChartViewController: DemoBaseViewController {
         
         let red = UIColor(red: 211/255, green: 74/255, blue: 88/255, alpha: 1)
         let green = UIColor(red: 110/255, green: 190/255, blue: 102/255, alpha: 1)
-        let colors = yVals.map { (entry) -> NSUIColor in
+        let colors = yVals.map { (entry) -> UIColor in
             return entry.y > 0 ? red : green
         }
         

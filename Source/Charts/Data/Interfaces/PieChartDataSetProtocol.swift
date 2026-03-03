@@ -12,7 +12,6 @@
 import Foundation
 import CoreGraphics
 
-@objc
 public protocol PieChartDataSetProtocol: ChartDataSetProtocol
 {
     // MARK: - Styling functions and accessors
@@ -32,7 +31,7 @@ public protocol PieChartDataSetProtocol: ChartDataSetProtocol
     var yValuePosition: PieChartDataSet.ValuePosition { get set }
 
     /// When valuePosition is OutsideSlice, indicates line color
-    var valueLineColor: NSUIColor? { get set }
+    var valueLineColor: UIColor? { get set }
 
     /// When valuePosition is OutsideSlice and enabled, line will have the same color as the slice
     var useValueColorForLine: Bool { get set }
@@ -53,12 +52,12 @@ public protocol PieChartDataSetProtocol: ChartDataSetProtocol
     var valueLineVariableLength: Bool { get set }
 
     /// the font for the slice-text labels
-    var entryLabelFont: NSUIFont? { get set }
+    var entryLabelFont: UIFont? { get set }
 
     /// the color for the slice-text labels
-    var entryLabelColor: NSUIColor? { get set }
+    var entryLabelColor: UIColor? { get set }
 
     /// get/sets the color for the highlighted sector
-    var highlightColor: NSUIColor? { get set }
+    var highlightColor: UIColor? { get set }
 
 }

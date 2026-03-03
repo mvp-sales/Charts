@@ -11,29 +11,23 @@
 
 import Foundation
 
-open class ChartDataEntryBase: NSObject
+open class ChartDataEntryBase
 {
     /// the y value
-    @objc open var y = 0.0
+    open var y = 0.0
     
     /// optional spot for additional data this Entry represents
-    @objc open var data: Any?
+    open var data: Any?
     
     /// optional icon image
-    @objc open var icon: NSUIImage?
-    
-    public override required init()
-    {
-        super.init()
-    }
+    open var icon: UIImage?
     
     /// An Entry represents one single entry in the chart.
     ///
     /// - Parameters:
     ///   - y: the y value (the actual value of the entry)
-    @objc public init(y: Double)
+    public init(y: Double)
     {
-        super.init()
         
         self.y = y
     }
@@ -42,7 +36,7 @@ open class ChartDataEntryBase: NSObject
     ///   - y: the y value (the actual value of the entry)
     ///   - data: Space for additional data this Entry represents.
     
-    @objc public convenience init(y: Double, data: Any?)
+    public convenience init(y: Double, data: Any?)
     {
         self.init(y: y)
         
@@ -53,7 +47,7 @@ open class ChartDataEntryBase: NSObject
     ///   - y: the y value (the actual value of the entry)
     ///   - icon: icon image
     
-    @objc public convenience init(y: Double, icon: NSUIImage?)
+    public convenience init(y: Double, icon: UIImage?)
     {
         self.init(y: y)
 
@@ -65,7 +59,7 @@ open class ChartDataEntryBase: NSObject
     ///   - icon: icon image
     ///   - data: Space for additional data this Entry represents.
     
-    @objc public convenience init(y: Double, icon: NSUIImage?, data: Any?)
+    public convenience init(y: Double, icon: UIImage?, data: Any?)
     {
         self.init(y: y)
 
@@ -75,22 +69,17 @@ open class ChartDataEntryBase: NSObject
 
     // MARK: NSObject
     
-    open override var description: String
+    var description: String
     {
         return "ChartDataEntryBase, y \(y)"
     }
 }
 
-// MARK: Equatable
-extension ChartDataEntryBase/*: Equatable*/ {
-    open override func isEqual(_ object: Any?) -> Bool {
-        guard let object = object as? ChartDataEntryBase else { return false }
-
-        if self === object
-        {
+extension ChartDataEntryBase: Equatable {
+    public static func == (lhs: ChartDataEntryBase, rhs: ChartDataEntryBase) -> Bool {
+        if lhs === rhs {
             return true
         }
-
-        return y == object.y
+        return lhs.y == rhs.y
     }
 }

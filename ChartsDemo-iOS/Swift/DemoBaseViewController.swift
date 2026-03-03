@@ -96,6 +96,14 @@ enum Option {
 }
 
 class DemoBaseViewController: UIViewController, ChartViewDelegate {
+    func chartViewDidEndPanning(_ chartView: DGCharts.ChartViewBase) {
+        // no-op
+    }
+    
+    func chartView(_ chartView: DGCharts.ChartViewBase, animatorDidStop animator: DGCharts.Animator) {
+        // no-op
+    }
+    
     private var optionsTableView: UITableView? = nil
     let parties = ["Party A", "Party B", "Party C", "Party D", "Party E", "Party F",
                    "Party G", "Party H", "Party I", "Party J", "Party K", "Party L",

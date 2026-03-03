@@ -30,7 +30,7 @@ open class BubbleChartData: BarLineScatterCandleBubbleChartData
     }
 
     /// Sets the width of the circle that surrounds the bubble when highlighted for all DataSet objects this data object contains
-    @objc open func setHighlightCircleWidth(_ width: CGFloat)
+    open func setHighlightCircleWidth(_ width: CGFloat)
     {
         (_dataSets as? [BubbleChartDataSetProtocol])?.forEach { $0.highlightCircleWidth = width }
     }

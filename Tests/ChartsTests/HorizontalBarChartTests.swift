@@ -59,10 +59,10 @@ class HorizontalBarChartTests: XCTestCase {
         let dataSet = BarChartDataSet(entries: chartDataEntries, label: "Stacked bar chart unit test data")
         dataSet.drawIconsEnabled = false
         dataSet.iconsOffset = CGPoint(x: 0, y: -10.0)
-        dataSet.colors = Array(arrayLiteral: NSUIColor(red: 46 / 255.0, green: 204 / 255.0, blue: 113 / 255.0, alpha: 1.0),
-                               NSUIColor(red: 241 / 255.0, green: 196 / 255.0, blue: 15 / 255.0, alpha: 1.0),
-                               NSUIColor(red: 231 / 255.0, green: 76 / 255.0, blue: 60 / 255.0, alpha: 1.0),
-                               NSUIColor(red: 52 / 255.0, green: 152 / 255.0, blue: 219 / 255.0, alpha: 1.0))
+        dataSet.colors = Array(arrayLiteral: UIColor(red: 46 / 255.0, green: 204 / 255.0, blue: 113 / 255.0, alpha: 1.0),
+                               UIColor(red: 241 / 255.0, green: 196 / 255.0, blue: 15 / 255.0, alpha: 1.0),
+                               UIColor(red: 231 / 255.0, green: 76 / 255.0, blue: 60 / 255.0, alpha: 1.0),
+                               UIColor(red: 52 / 255.0, green: 152 / 255.0, blue: 219 / 255.0, alpha: 1.0))
         return dataSet
     }
 
@@ -71,7 +71,7 @@ class HorizontalBarChartTests: XCTestCase {
         data.barWidth = 0.85
 
         let chart = HorizontalBarChartView(frame: CGRect(x: 0, y: 0, width: 480, height: 350))
-        chart.backgroundColor = NSUIColor.clear
+        chart.backgroundColor = UIColor.clear
         chart.data = data
         return chart
     }

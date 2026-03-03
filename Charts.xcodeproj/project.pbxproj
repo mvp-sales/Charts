@@ -130,10 +130,7 @@
 		C33E1AF5471A60BA42DAF52E /* RadarHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F368CF209744D8F3B85B1028 /* RadarHighlighter.swift */; };
 		C3F0DDB7F0A922F0BB7EDB8A /* BarChartDataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A53A9E42FC07FFDACA937C1 /* BarChartDataSetProtocol.swift */; };
 		C7B150D740255670DEB9F455 /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65AD9E95D9ED4DC0BD73A743 /* DGCharts.framework */; };
-		C9AA360A2355F01F00C97D93 /* Platform+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AA36092355F01F00C97D93 /* Platform+Color.swift */; };
 		C9F3DC262355F791000C3215 /* Platform+Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3DC242355F791000C3215 /* Platform+Graphics.swift */; };
-		C9F3DC272355F791000C3215 /* Platform+Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3DC252355F791000C3215 /* Platform+Gestures.swift */; };
-		C9F3DC292355FA2F000C3215 /* Platform+Touch Handling.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F3DC282355FA2F000C3215 /* Platform+Touch Handling.swift */; };
 		CB785FE9B6B312408D17BC3B /* ChartUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FDA09EF973925A110506799 /* ChartUtils.swift */; };
 		CC7F8198A13249B5DEBBF25E /* AnimatedViewPortJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710D7C9B2F1DB4A331EE405A /* AnimatedViewPortJob.swift */; };
 		CEF68F42A5390A73113F3663 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F66B32AD8A878CBD6DB6ED2 /* Renderer.swift */; };
@@ -149,7 +146,6 @@
 		E50D291A6B6E69BF0B56A67C /* ChartBaseDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FE42E868A225C116537368 /* ChartBaseDataSet.swift */; };
 		E68CA3DC66EB638C956E09B8 /* BubbleChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA3AD550AEFC93C8D15B9C /* BubbleChartData.swift */; };
 		E8F0F4F47CD7D72B4EE5A794 /* ChartDataSetProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A32510073A303CBB38E094A /* ChartDataSetProtocol.swift */; };
-		E9FF0ECB5E0CA92DBF4C1BC4 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED23C354AFE81818D78E645 /* Platform.swift */; };
 		EAEA60D22CA8C1B7E18D3F7D /* ChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22750328058DEC2F019646F /* ChartDataEntry.swift */; };
 		EB56849433A76B08606B73EB /* ScatterChartDataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1DD1A0F64266A10EE94194 /* ScatterChartDataSet.swift */; };
 		ECE7EAE7179A7F57CE9BBD8F /* Legend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A75540C627E09080B402A /* Legend.swift */; };
@@ -222,7 +218,6 @@
 		3976E5F9D60E30CD94CE6156 /* Animator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animator.swift; path = Source/Charts/Animation/Animator.swift; sourceTree = "<group>"; };
 		3A32510073A303CBB38E094A /* ChartDataSetProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartDataSetProtocol.swift; path = Source/Charts/Data/Interfaces/ChartDataSetProtocol.swift; sourceTree = "<group>"; };
 		3D64616883374310C505EC39 /* Highlight.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Highlight.swift; path = Source/Charts/Highlight/Highlight.swift; sourceTree = "<group>"; };
-		3ED23C354AFE81818D78E645 /* Platform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Platform.swift; path = Source/Charts/Utils/Platform.swift; sourceTree = "<group>"; };
 		3F8146ABC9FC311AF8CA699C /* CandleChartDataProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CandleChartDataProvider.swift; path = Source/Charts/Interfaces/CandleChartDataProvider.swift; sourceTree = "<group>"; };
 		3FDA09EF973925A110506799 /* ChartUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartUtils.swift; path = Source/Charts/Utils/ChartUtils.swift; sourceTree = "<group>"; };
 		429E88F2729735DC092EE556 /* LineChartDataSetProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LineChartDataSetProtocol.swift; path = Source/Charts/Data/Interfaces/LineChartDataSetProtocol.swift; sourceTree = "<group>"; };
@@ -304,10 +299,7 @@
 		C75935E899183DDFA181E2CC /* AxisRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AxisRenderer.swift; path = Source/Charts/Renderers/AxisRenderer.swift; sourceTree = "<group>"; };
 		C8C9A105A7DB64F39DDA648B /* ComponentBase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ComponentBase.swift; path = Source/Charts/Components/ComponentBase.swift; sourceTree = "<group>"; };
 		C8FB6219B143F8F7DA762950 /* TriangleShapeRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TriangleShapeRenderer.swift; path = Source/Charts/Renderers/Scatter/TriangleShapeRenderer.swift; sourceTree = "<group>"; };
-		C9AA36092355F01F00C97D93 /* Platform+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Platform+Color.swift"; path = "Source/Charts/Utils/Platform+Color.swift"; sourceTree = "<group>"; };
 		C9F3DC242355F791000C3215 /* Platform+Graphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Platform+Graphics.swift"; path = "Source/Charts/Utils/Platform+Graphics.swift"; sourceTree = "<group>"; };
-		C9F3DC252355F791000C3215 /* Platform+Gestures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Platform+Gestures.swift"; path = "Source/Charts/Utils/Platform+Gestures.swift"; sourceTree = "<group>"; };
-		C9F3DC282355FA2F000C3215 /* Platform+Touch Handling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Platform+Touch Handling.swift"; path = "Source/Charts/Utils/Platform+Touch Handling.swift"; sourceTree = "<group>"; };
 		C9FE42E868A225C116537368 /* ChartBaseDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ChartBaseDataSet.swift; path = Source/Charts/Data/Implementations/ChartBaseDataSet.swift; sourceTree = "<group>"; };
 		CB1DD1A0F64266A10EE94194 /* ScatterChartDataSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScatterChartDataSet.swift; path = Source/Charts/Data/Implementations/Standard/ScatterChartDataSet.swift; sourceTree = "<group>"; };
 		D2E1819D72CD7B6C4A4E8048 /* LineChartTests.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LineChartTests.swift; sourceTree = "<group>"; };
@@ -656,12 +648,8 @@
 				F6227A646166E248F90F86AD /* ChartColorTemplates.swift */,
 				3FDA09EF973925A110506799 /* ChartUtils.swift */,
 				5A4CFFFB65819121595F06F1 /* Fill.swift */,
-				3ED23C354AFE81818D78E645 /* Platform.swift */,
 				97AD2D4520AF917100F9C24A /* Platform+Accessibility.swift */,
-				C9AA36092355F01F00C97D93 /* Platform+Color.swift */,
-				C9F3DC252355F791000C3215 /* Platform+Gestures.swift */,
 				C9F3DC242355F791000C3215 /* Platform+Graphics.swift */,
-				C9F3DC282355FA2F000C3215 /* Platform+Touch Handling.swift */,
 				221CA2912588FCBC00C2DD1E /* Sequence+KeyPath.swift */,
 				FF475B9593B9898853814340 /* Transformer.swift */,
 				324C9127B53A8D39C8B49277 /* TransformerHorizontalBarChart.swift */,
@@ -872,7 +860,6 @@
 				03960E8148C6AEDACE4B77CC /* Marker.swift in Sources */,
 				ECE7EAE7179A7F57CE9BBD8F /* Legend.swift in Sources */,
 				067934572A324A9D004BFBA9 /* Partition.swift in Sources */,
-				C9F3DC272355F791000C3215 /* Platform+Gestures.swift in Sources */,
 				C20A62D8CB9120523D5FB650 /* LegendEntry.swift in Sources */,
 				369DEB23452CB436A3A1A644 /* MarkerImage.swift in Sources */,
 				9360348A04723E653FBC8B18 /* MarkerView.swift in Sources */,
@@ -882,7 +869,6 @@
 				3395682A1E27756651FF6F4D /* BarChartData.swift in Sources */,
 				45C459FA25DFCBE62FA6A06C /* BarChartDataEntry.swift in Sources */,
 				17E994DA88777AA1D8CCFC58 /* BarChartDataSet.swift in Sources */,
-				C9AA360A2355F01F00C97D93 /* Platform+Color.swift in Sources */,
 				7C9CE6718D18859A35146098 /* BarLineScatterCandleBubbleChartData.swift in Sources */,
 				53A91F6F86740E26FE733639 /* BarLineScatterCandleBubbleChartDataSet.swift in Sources */,
 				E68CA3DC66EB638C956E09B8 /* BubbleChartData.swift in Sources */,
@@ -945,7 +931,6 @@
 				4272DA5D44AF7DA05A5A8287 /* BubbleChartDataProvider.swift in Sources */,
 				30DCC4BAA5601B154ABADA13 /* CandleChartDataProvider.swift in Sources */,
 				FD37AAC0270F390FFC470A65 /* ChartDataProvider.swift in Sources */,
-				C9F3DC292355FA2F000C3215 /* Platform+Touch Handling.swift in Sources */,
 				65EA404AE098EBCE8D5DE04B /* CombinedChartDataProvider.swift in Sources */,
 				2BA03CEC36BADCF682F1328B /* LineChartDataProvider.swift in Sources */,
 				0511E43EF3FD2CDE7F7F15DB /* ScatterChartDataProvider.swift in Sources */,
@@ -990,7 +975,6 @@
 				40C82F2209E1BA9E41E8F3DA /* ChartColorTemplates.swift in Sources */,
 				CB785FE9B6B312408D17BC3B /* ChartUtils.swift in Sources */,
 				8102A555DD6C93AC1290EA7C /* Fill.swift in Sources */,
-				E9FF0ECB5E0CA92DBF4C1BC4 /* Platform.swift in Sources */,
 				DE0F434FE8C24C52B023370F /* Transformer.swift in Sources */,
 				8A463E2947F211C594CA5E95 /* TransformerHorizontalBarChart.swift in Sources */,
 				515E286E6C47594D3FFA3DD1 /* ViewPortHandler.swift in Sources */,
@@ -1045,13 +1029,13 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 5.1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
@@ -1066,7 +1050,7 @@
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
+				TVOS_DEPLOYMENT_TARGET = 15.6;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1241,13 +1225,13 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "Source/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
+				MACOSX_DEPLOYMENT_TARGET = 15.6;
 				MARKETING_VERSION = 5.1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu99 gnu++11";
@@ -1261,7 +1245,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
+				TVOS_DEPLOYMENT_TARGET = 15.6;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

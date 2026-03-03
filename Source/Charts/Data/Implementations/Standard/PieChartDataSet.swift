@@ -14,7 +14,6 @@ import CoreGraphics
 
 open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
 {
-    @objc(PieChartValuePosition)
     public enum ValuePosition: Int
     {
         case insideSlice
@@ -23,8 +22,8 @@ open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
 
     private func initialize()
     {
-        self.valueTextColor = NSUIColor.white
-        self.valueFont = NSUIFont.systemFont(ofSize: 13.0)
+        self.valueTextColor = UIColor.white
+        self.valueFont = UIFont.systemFont(ofSize: 13.0)
     }
 
     public required init()
@@ -77,7 +76,7 @@ open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
     open var yValuePosition: ValuePosition = .insideSlice
 
     /// When valuePosition is OutsideSlice, indicates line color
-    open var valueLineColor: NSUIColor? = NSUIColor.black
+    open var valueLineColor: UIColor? = UIColor.black
 
     /// When valuePosition is OutsideSlice and enabled, line will have the same color as the slice
     open var useValueColorForLine: Bool = false
@@ -98,33 +97,11 @@ open class PieChartDataSet: ChartDataSet, PieChartDataSetProtocol
     open var valueLineVariableLength: Bool = true
 
     /// the font for the slice-text labels
-    open var entryLabelFont: NSUIFont? = nil
+    open var entryLabelFont: UIFont? = nil
 
     /// the color for the slice-text labels
-    open var entryLabelColor: NSUIColor? = nil
+    open var entryLabelColor: UIColor? = nil
 
     /// the color for the highlighted sector
-    open var highlightColor: NSUIColor? = nil
-
-    // MARK: - NSCopying
-
-    open override func copy(with zone: NSZone? = nil) -> Any
-    {
-        let copy = super.copy(with: zone) as! PieChartDataSet
-        copy._sliceSpace = _sliceSpace
-        copy.automaticallyDisableSliceSpacing = automaticallyDisableSliceSpacing
-        copy.selectionShift = selectionShift
-        copy.xValuePosition = xValuePosition
-        copy.yValuePosition = yValuePosition
-        copy.valueLineColor = valueLineColor
-        copy.valueLineWidth = valueLineWidth
-        copy.valueLinePart1OffsetPercentage = valueLinePart1OffsetPercentage
-        copy.valueLinePart1Length = valueLinePart1Length
-        copy.valueLinePart2Length = valueLinePart2Length
-        copy.valueLineVariableLength = valueLineVariableLength
-        copy.entryLabelFont = entryLabelFont
-        copy.entryLabelColor = entryLabelColor
-        copy.highlightColor = highlightColor
-        return copy
-    }
+    open var highlightColor: UIColor? = nil
 }

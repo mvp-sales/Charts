@@ -12,7 +12,6 @@
 import Foundation
 import CoreGraphics
 
-@objc
 public protocol RadarChartDataSetProtocol: LineRadarChartDataSetProtocol
 {
     // MARK: - Data functions and accessors
@@ -24,11 +23,11 @@ public protocol RadarChartDataSetProtocol: LineRadarChartDataSetProtocol
     
     var isDrawHighlightCircleEnabled: Bool { get }
     
-    var highlightCircleFillColor: NSUIColor? { get set }
+    var highlightCircleFillColor: UIColor? { get set }
     
     /// The stroke color for highlight circle.
     /// If `nil`, the color of the dataset is taken.
-    var highlightCircleStrokeColor: NSUIColor? { get set }
+    var highlightCircleStrokeColor: UIColor? { get set }
     
     var highlightCircleStrokeAlpha: CGFloat { get set }
     

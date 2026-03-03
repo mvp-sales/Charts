@@ -14,23 +14,18 @@ import Foundation
 open class CandleChartDataEntry: ChartDataEntry
 {
     /// shadow-high value
-    @objc open var high = Double(0.0)
+    open var high = Double(0.0)
     
     /// shadow-low value
-    @objc open var low = Double(0.0)
+    open var low = Double(0.0)
     
     /// close value
-    @objc open var close = Double(0.0)
+    open var close = Double(0.0)
     
     /// open value
-    @objc open var open = Double(0.0)
+    open var open = Double(0.0)
     
-    public required init()
-    {
-        super.init()
-    }
-    
-    @objc public init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double)
+    public init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double)
     {
         super.init(x: x, y: (shadowH + shadowL) / 2.0)
         
@@ -40,19 +35,19 @@ open class CandleChartDataEntry: ChartDataEntry
         self.close = close
     }
 
-    @objc public convenience init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double, icon: NSUIImage?)
+    public convenience init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double, icon: UIImage?)
     {
         self.init(x: x, shadowH: shadowH, shadowL: shadowL, open: open, close: close)
         self.icon = icon
     }
 
-    @objc public convenience init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double, data: Any?)
+    public convenience init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double, data: Any?)
     {
         self.init(x: x, shadowH: shadowH, shadowL: shadowL, open: open, close: close)
         self.data = data
     }
 
-    @objc public convenience init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double, icon: NSUIImage?, data: Any?)
+    public convenience init(x: Double, shadowH: Double, shadowL: Double, open: Double, close: Double, icon: UIImage?, data: Any?)
     {
         self.init(x: x, shadowH: shadowH, shadowL: shadowL, open: open, close: close)
         self.icon = icon
@@ -60,13 +55,13 @@ open class CandleChartDataEntry: ChartDataEntry
     }
     
     /// The overall range (difference) between shadow-high and shadow-low.
-    @objc open var shadowRange: Double
+    open var shadowRange: Double
     {
         return abs(high - low)
     }
     
     /// The body size (difference between open and close).
-    @objc open var bodyRange: Double
+    open var bodyRange: Double
     {
         return abs(open - close)
     }
@@ -82,17 +77,5 @@ open class CandleChartDataEntry: ChartDataEntry
         {
             super.y = (high + low) / 2.0
         }
-    }
-    
-    // MARK: NSCopying
-    
-    open override func copy(with zone: NSZone? = nil) -> Any
-    {
-        let copy = super.copy(with: zone) as! CandleChartDataEntry
-        copy.high = high
-        copy.low = low
-        copy.open = open
-        copy.close = close
-        return copy
     }
 }

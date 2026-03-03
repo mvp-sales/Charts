@@ -12,7 +12,6 @@
 import Foundation
 import CoreGraphics
 
-@objc
 public protocol CandleChartDataSetProtocol: LineScatterCandleRadarChartDataSetProtocol
 {
     // MARK: - Data functions and accessors
@@ -35,7 +34,7 @@ public protocol CandleChartDataSetProtocol: LineScatterCandleRadarChartDataSetPr
     var shadowWidth: CGFloat { get set }
     
     /// the color of the shadow line
-    var shadowColor: NSUIColor? { get set }
+    var shadowColor: UIColor? { get set }
     
     /// use candle color for the shadow
     var shadowColorSameAsCandle: Bool { get set }
@@ -44,13 +43,13 @@ public protocol CandleChartDataSetProtocol: LineScatterCandleRadarChartDataSetPr
     var isShadowColorSameAsCandle: Bool { get }
     
     /// color for open == close
-    var neutralColor: NSUIColor? { get set }
+    var neutralColor: UIColor? { get set }
     
     /// color for open > close
-    var increasingColor: NSUIColor? { get set }
+    var increasingColor: UIColor? { get set }
     
     /// color for open < close
-    var decreasingColor: NSUIColor? { get set }
+    var decreasingColor: UIColor? { get set }
     
     /// Are increasing values drawn as filled?
     var increasingFilled: Bool { get set }

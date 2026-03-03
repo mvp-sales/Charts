@@ -336,7 +336,7 @@ open class HorizontalBarChartRenderer: BarChartRenderer
                 let barData = dataProvider.barData
                 else { return }
 
-            let textAlign = TextAlignment.left
+            let textAlign = NSTextAlignment.left
             
             let valueOffsetPlus: CGFloat = 5.0
             var posOffset: CGFloat

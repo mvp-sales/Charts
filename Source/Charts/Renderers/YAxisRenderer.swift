@@ -13,20 +13,17 @@ import Foundation
 import CoreGraphics
 
 
-@objc(ChartYAxisRenderer)
-open class YAxisRenderer: NSObject, AxisRenderer
+open class YAxisRenderer: AxisRenderer
 {
-    @objc public let viewPortHandler: ViewPortHandler
-    @objc public let axis: YAxis
-    @objc public let transformer: Transformer?
+    public let viewPortHandler: ViewPortHandler
+    public let axis: YAxis
+    public let transformer: Transformer?
 
-    @objc public init(viewPortHandler: ViewPortHandler, axis: YAxis, transformer: Transformer?)
+    public init(viewPortHandler: ViewPortHandler, axis: YAxis, transformer: Transformer?)
     {
         self.viewPortHandler = viewPortHandler
         self.axis = axis
         self.transformer = transformer
-        
-        super.init()
     }
     
     /// draws the y-axis labels to the screen
@@ -44,7 +41,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
         let labelPosition = axis.labelPosition
         
         let xPos: CGFloat
-        let textAlign: TextAlignment
+        let textAlign: NSTextAlignment
         
         if dependency == .left
         {
@@ -123,7 +120,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
         fixedPosition: CGFloat,
         positions: [CGPoint],
         offset: CGFloat,
-        textAlign: TextAlignment)
+        textAlign: NSTextAlignment)
     {
         let labelFont = axis.labelFont
         let labelTextColor = axis.labelTextColor
@@ -180,7 +177,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
         }
     }
     
-    @objc open var gridClippingRect: CGRect
+    open var gridClippingRect: CGRect
     {
         var contentRect = viewPortHandler.contentRect
         let dy = self.axis.gridLineWidth
@@ -189,7 +186,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
         return contentRect
     }
     
-    @objc open func drawGridLine(
+    open func drawGridLine(
         context: CGContext,
         position: CGPoint)
     {
@@ -199,7 +196,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
         context.strokePath()
     }
     
-    @objc open func transformedPositions() -> [CGPoint]
+    open func transformedPositions() -> [CGPoint]
     {
         guard let transformer = self.transformer else { return [] }
         
@@ -210,7 +207,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
     }
 
     /// Draws the zero line at the specified position.
-    @objc open func drawZeroLine(context: CGContext)
+    open func drawZeroLine(context: CGContext)
     {
         guard
             let transformer = self.transformer,
@@ -339,7 +336,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
         }
     }
 
-    @objc open func computeAxis(min: Double, max: Double, inverted: Bool)
+    open func computeAxis(min: Double, max: Double, inverted: Bool)
     {
         var min = min, max = max
 
@@ -358,7 +355,7 @@ open class YAxisRenderer: NSObject, AxisRenderer
         computeAxisValues(min: min, max: max)
     }
 
-    @objc open func computeAxisValues(min: Double, max: Double)
+    open func computeAxisValues(min: Double, max: Double)
     {
         let yMin = min
         let yMax = max

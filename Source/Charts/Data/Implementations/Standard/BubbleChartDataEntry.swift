@@ -15,18 +15,13 @@ import CoreGraphics
 open class BubbleChartDataEntry: ChartDataEntry
 {
     /// The size of the bubble.
-    @objc open var size = CGFloat(0.0)
-    
-    public required init()
-    {
-        super.init()
-    }
+    open var size = CGFloat(0.0)
     
     /// - Parameters:
     ///   - x: The index on the x-axis.
     ///   - y: The value on the y-axis.
     ///   - size: The size of the bubble.
-    @objc public init(x: Double, y: Double, size: CGFloat)
+    public init(x: Double, y: Double, size: CGFloat)
     {
         super.init(x: x, y: y)
         
@@ -38,7 +33,7 @@ open class BubbleChartDataEntry: ChartDataEntry
     ///   - y: The value on the y-axis.
     ///   - size: The size of the bubble.
     ///   - data: Spot for additional data this Entry represents.
-    @objc public convenience init(x: Double, y: Double, size: CGFloat, data: Any?)
+    public convenience init(x: Double, y: Double, size: CGFloat, data: Any?)
     {
         self.init(x: x, y: y, size: size)
         self.data = data
@@ -49,7 +44,7 @@ open class BubbleChartDataEntry: ChartDataEntry
     ///   - y: The value on the y-axis.
     ///   - size: The size of the bubble.
     ///   - icon: icon image
-    @objc public convenience init(x: Double, y: Double, size: CGFloat, icon: NSUIImage?)
+    public convenience init(x: Double, y: Double, size: CGFloat, icon: UIImage?)
     {
         self.init(x: x, y: y, size: size)
         self.icon = icon
@@ -61,19 +56,10 @@ open class BubbleChartDataEntry: ChartDataEntry
     ///   - size: The size of the bubble.
     ///   - icon: icon image
     ///   - data: Spot for additional data this Entry represents.
-    @objc public convenience init(x: Double, y: Double, size: CGFloat, icon: NSUIImage?, data: Any?)
+    public convenience init(x: Double, y: Double, size: CGFloat, icon: UIImage?, data: Any?)
     {
         self.init(x: x, y: y, size: size)
         self.icon = icon
         self.data = data
-    }
-    
-    // MARK: NSCopying
-    
-    open override func copy(with zone: NSZone? = nil) -> Any
-    {
-        let copy = super.copy(with: zone) as! BubbleChartDataEntry
-        copy.size = size
-        return copy
     }
 }

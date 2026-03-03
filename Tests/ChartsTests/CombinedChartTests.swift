@@ -25,7 +25,7 @@ class CombinedChartTests: XCTestCase {
         combinedData.barData = generateBarData()
         combinedData.lineData = generateLineData()
         chart = CombinedChartView(frame: CGRect(x: 0, y: 0, width: 480, height: 350))
-        chart.backgroundColor = NSUIColor.clear
+        chart.backgroundColor = UIColor.clear
         chart.leftAxis.axisMinimum = 0.0
         chart.rightAxis.axisMinimum = 0.0
         chart.data = combinedData

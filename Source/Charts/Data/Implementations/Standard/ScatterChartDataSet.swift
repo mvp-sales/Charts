@@ -15,7 +15,6 @@ import CoreGraphics
 open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChartDataSetProtocol
 {
     
-    @objc(ScatterShape)
     public enum Shape: Int
     {
         case square
@@ -36,11 +35,11 @@ open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChart
     
     /// Color for the hole in the shape. Setting to `nil` will behave as transparent.
     /// **default**: nil
-    open var scatterShapeHoleColor: NSUIColor? = nil
+    open var scatterShapeHoleColor: UIColor? = nil
     
     /// Sets the ScatterShape this DataSet should be drawn with.
     /// This will search for an available ShapeRenderer and set this renderer for the DataSet
-    @objc open func setScatterShape(_ shape: Shape)
+    open func setScatterShape(_ shape: Shape)
     {
         self.shapeRenderer = ScatterChartDataSet.renderer(forShape: shape)
     }
@@ -50,7 +49,7 @@ open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChart
     /// **default**: `SquareShapeRenderer`
     open var shapeRenderer: ShapeRenderer? = SquareShapeRenderer()
     
-    @objc open class func renderer(forShape shape: Shape) -> ShapeRenderer
+    open class func renderer(forShape shape: Shape) -> ShapeRenderer
     {
         switch shape
         {
@@ -62,17 +61,5 @@ open class ScatterChartDataSet: LineScatterCandleRadarChartDataSet, ScatterChart
         case .chevronUp: return ChevronUpShapeRenderer()
         case .chevronDown: return ChevronDownShapeRenderer()
         }
-    }
-    
-    // MARK: NSCopying
-    
-    open override func copy(with zone: NSZone? = nil) -> Any
-    {
-        let copy = super.copy(with: zone) as! ScatterChartDataSet
-        copy.scatterShapeSize = scatterShapeSize
-        copy.scatterShapeHoleRadius = scatterShapeHoleRadius
-        copy.scatterShapeHoleColor = scatterShapeHoleColor
-        copy.shapeRenderer = shapeRenderer
-        return copy
     }
 }

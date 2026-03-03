@@ -11,22 +11,17 @@
 
 import Foundation
 
-open class ChartDataEntry: ChartDataEntryBase, NSCopying
+open class ChartDataEntry: ChartDataEntryBase
 {
     /// the x value
-    @objc open var x = 0.0
-    
-    public required init()
-    {
-        super.init()
-    }
+    open var x = 0.0
     
     /// An Entry represents one single entry in the chart.
     ///
     /// - Parameters:
     ///   - x: the x value
     ///   - y: the y value (the actual value of the entry)
-    @objc public init(x: Double, y: Double)
+    public init(x: Double, y: Double)
     {
         super.init(y: y)
         self.x = x
@@ -39,7 +34,7 @@ open class ChartDataEntry: ChartDataEntryBase, NSCopying
     ///   - y: the y value (the actual value of the entry)
     ///   - data: Space for additional data this Entry represents.
     
-    @objc public convenience init(x: Double, y: Double, data: Any?)
+    public convenience init(x: Double, y: Double, data: Any?)
     {
         self.init(x: x, y: y)
         self.data = data
@@ -52,7 +47,7 @@ open class ChartDataEntry: ChartDataEntryBase, NSCopying
     ///   - y: the y value (the actual value of the entry)
     ///   - icon: icon image
     
-    @objc public convenience init(x: Double, y: Double, icon: NSUIImage?)
+    public convenience init(x: Double, y: Double, icon: UIImage?)
     {
         self.init(x: x, y: y)
         self.icon = icon
@@ -66,7 +61,7 @@ open class ChartDataEntry: ChartDataEntryBase, NSCopying
     ///   - icon: icon image
     ///   - data: Space for additional data this Entry represents.
     
-    @objc public convenience init(x: Double, y: Double, icon: NSUIImage?, data: Any?)
+    public convenience init(x: Double, y: Double, icon: UIImage?, data: Any?)
     {
         self.init(x: x, y: y)
         self.icon = icon
@@ -80,31 +75,10 @@ open class ChartDataEntry: ChartDataEntryBase, NSCopying
         return "ChartDataEntry, x: \(x), y \(y)"
     }
     
-    // MARK: NSCopying
-    
-    open func copy(with zone: NSZone? = nil) -> Any
-    {
-        let copy = type(of: self).init()
-        
-        copy.x = x
-        copy.y = y
-        copy.data = data
-        
-        return copy
-    }
-}
-
-// MARK: Equatable
-extension ChartDataEntry/*: Equatable*/ {
-    open override func isEqual(_ object: Any?) -> Bool {
-        guard let object = object as? ChartDataEntry else { return false }
-
-        if self === object
-        {
+    public static func == (lhs: ChartDataEntry, rhs: ChartDataEntry) -> Bool {
+        if lhs === rhs {
             return true
         }
-
-        return y == object.y
-            && x == object.x
+        return lhs.y == rhs.y && lhs.x == rhs.x
     }
 }

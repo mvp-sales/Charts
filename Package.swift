@@ -5,17 +5,11 @@ import PackageDescription
 let package = Package(
     name: "DGCharts",
     platforms: [
-          .iOS(.v12),
-          .tvOS(.v12),
-          .macOS(.v10_12),
+        .iOS(.v14),
     ],
     products: [
         .library(
             name: "DGCharts",
-            targets: ["DGCharts"]),
-        .library(
-            name: "DGChartsDynamic",
-            type: .dynamic,
             targets: ["DGCharts"])
     ],
     targets: [

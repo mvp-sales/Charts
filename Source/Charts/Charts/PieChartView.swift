@@ -9,8 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
-import CoreGraphics
 import UIKit
 
 /// View that represents a pie chart. Draws cake like slices.

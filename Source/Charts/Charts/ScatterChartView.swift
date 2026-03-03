@@ -9,9 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
-import CoreGraphics
-
 /// The ScatterChart. Draws dots, triangles, squares and custom shapes into the chartview.
 open class ScatterChartView: BarLineChartViewBase, ScatterChartDataProvider
 {

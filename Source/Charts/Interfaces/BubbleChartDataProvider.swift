@@ -9,9 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
-import CoreGraphics
-
 public protocol BubbleChartDataProvider: BarLineScatterCandleBubbleChartDataProvider
 {
     var bubbleData: BubbleChartData? { get }

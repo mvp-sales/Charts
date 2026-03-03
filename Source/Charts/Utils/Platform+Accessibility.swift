@@ -9,7 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
 import UIKit
 
 internal func accessibilityPostLayoutChangedNotification(withElement element: Any? = nil)

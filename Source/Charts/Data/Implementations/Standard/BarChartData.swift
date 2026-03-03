@@ -10,7 +10,6 @@
 //
 
 import Foundation
-import CoreGraphics
 
 open class BarChartData: BarLineScatterCandleBubbleChartData
 {

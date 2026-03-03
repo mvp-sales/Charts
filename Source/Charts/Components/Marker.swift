@@ -10,7 +10,6 @@
 //
 
 import Foundation
-import CoreGraphics
 
 public protocol Marker: AnyObject
 {

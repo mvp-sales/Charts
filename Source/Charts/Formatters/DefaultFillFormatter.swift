@@ -10,7 +10,6 @@
 //
 
 import Foundation
-import CoreGraphics
 
 /// Default formatter that calculates the position of the filled line.
 open class DefaultFillFormatter: FillFormatter

@@ -10,8 +10,6 @@
 //
 //  Based on https://github.com/PhilJay/MPAndroidChart/commit/c42b880
 
-import Foundation
-import CoreGraphics
 import UIKit
 
 public protocol ChartViewDelegate: AnyObject

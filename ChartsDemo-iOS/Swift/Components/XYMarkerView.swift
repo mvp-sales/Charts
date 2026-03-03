@@ -6,11 +6,8 @@
 //  Copyright © 2017 jc. All rights reserved.
 //
 
-import Foundation
 import DGCharts
-#if canImport(UIKit)
-    import UIKit
-#endif
+import UIKit
 
 public class XYMarkerView: BalloonMarker {
     public var xAxisValueFormatter: AxisValueFormatter

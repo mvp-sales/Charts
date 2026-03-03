@@ -9,9 +9,7 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
-import CoreGraphics
-
+import UIKit
 
 open class RadarChartDataSet: LineRadarChartDataSet, RadarChartDataSetProtocol
 {

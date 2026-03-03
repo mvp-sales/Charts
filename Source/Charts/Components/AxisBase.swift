@@ -9,8 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
-import CoreGraphics
 import UIKit
 
 /// Base class for all axes

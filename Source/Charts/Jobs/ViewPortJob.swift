@@ -10,7 +10,6 @@
 //
 
 import Foundation
-import CoreGraphics
 
 // This defines a viewport modification job, used for delaying or animating viewport changes
 open class ViewPortJob

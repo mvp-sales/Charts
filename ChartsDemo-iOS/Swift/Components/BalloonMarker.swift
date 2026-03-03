@@ -9,7 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
 import DGCharts
 import UIKit
 

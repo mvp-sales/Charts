@@ -9,9 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
-import CoreGraphics
-
 open class BubbleChartView: BarLineChartViewBase, BubbleChartDataProvider
 {
     open override func initialize()

@@ -9,11 +9,10 @@
 import Foundation
 import DGCharts
 
-public class DateValueFormatter: NSObject, AxisValueFormatter {
+public class DateValueFormatter: AxisValueFormatter {
     private let dateFormatter = DateFormatter()
     
-    override init() {
-        super.init()
+    init() {
         dateFormatter.dateFormat = "dd MMM HH:mm"
     }
     

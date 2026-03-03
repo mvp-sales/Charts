@@ -9,8 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
-
 open class BarLineScatterCandleBubbleChartData: ChartData
 {
     public required init()

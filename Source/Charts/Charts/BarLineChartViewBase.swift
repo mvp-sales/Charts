@@ -9,8 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import CoreGraphics
-import Foundation
 import UIKit
 
 /// Base-class of LineChart, BarChart, ScatterChart and CandleStickChart.

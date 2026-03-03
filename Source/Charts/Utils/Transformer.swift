@@ -9,7 +9,6 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
 import CoreGraphics
 
 /// Transformer class that contains all matrices and is responsible for transforming values into pixels on the screen and backwards.
@@ -158,8 +157,7 @@ open class Transformer
     {
         return
             matrixValueToPx.concatenating(viewPortHandler.touchMatrix)
-                .concatenating(matrixOffset
-        )
+                .concatenating(matrixOffset)
     }
     
     open var pixelToValueMatrix: CGAffineTransform

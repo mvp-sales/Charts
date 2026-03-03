@@ -9,9 +9,7 @@
 //  https://github.com/danielgindi/Charts
 //
 
-import Foundation
 import CoreGraphics
-
 
 public protocol AxisRenderer: Renderer {
 

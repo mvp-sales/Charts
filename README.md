@@ -1,34 +1,23 @@
-**Version 4.0.0**, synced to [MPAndroidChart #f6a398b](https://github.com/PhilJay/MPAndroidChart/commit/f6a398b)
-
-![alt tag](https://raw.github.com/danielgindi/Charts/master/Assets/feature_graphic.png)
-![Supported Platforms](https://img.shields.io/cocoapods/p/Charts.svg) [![Releases](https://img.shields.io/github/release/danielgindi/Charts.svg)](https://github.com/danielgindi/Charts/releases) [![Latest pod release](https://img.shields.io/cocoapods/v/Charts.svg)](http://cocoapods.org/pods/charts) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Build Status](https://travis-ci.org/danielgindi/Charts.svg?branch=master)](https://travis-ci.org/danielgindi/Charts) [![codecov](https://codecov.io/gh/danielgindi/Charts/branch/master/graph/badge.svg)](https://codecov.io/gh/danielgindi/Charts)
-[![Join the chat at https://gitter.im/danielgindi/Charts](https://badges.gitter.im/danielgindi/Charts.svg)](https://gitter.im/danielgindi/Charts?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-### Just a heads up: Charts 5.0 has some breaking changes. Charts has now been renamed DGCharts to prevent conflicts with Apple's new Swift Charts. Please read [the release/migration notes](https://github.com/danielgindi/Charts/releases/tag/5.0.0).
+Based on [DGCharts](https://github.com/danielgindi/Charts), but with fully removed Obj-C compatibility code
 
 ### One more heads up: As Swift evolves, if you are not using the latest Swift compiler, you shouldn't check out the master branch. Instead, you should go to the release page and pick up whatever suits you.
 
-- Xcode 14 / Swift 5.7 (master branch)
-- iOS >= 12.0 (Use as an **Embedded** Framework)
-- tvOS >= 12.0
-- macOS >= 10.13
+- Xcode 26 / Swift 5.7 (master branch)
+- iOS >= 14.0 (Use as an **Embedded** Framework)
 
 Okay so there's this beautiful library called [MPAndroidChart](https://github.com/PhilJay/MPAndroidChart) by [Philipp Jahoda](https://www.linkedin.com/in/philippjahoda) which has become very popular amongst Android developers, but there was no decent solution to create charts for iOS.
 
-I've chosen to write it in `Swift` as it can be highly optimized by the compiler, and can be used in both `Swift` and `ObjC` project. The demo project is written in `ObjC` to demonstrate how it works.
+Swift only!
 
-**An amazing feature** of this library now, for Android, iOS, tvOS and macOS, is the time it saves you when developing for both platforms, as the learning curve is singleton- it happens only once, and the code stays very similar so developers don't have to go around and re-invent the app to produce the same output with a different library. (And that's not even considering the fact that there's not really another good choice out there currently...)
+**An amazing feature** of this library now, for Android and iOS is the time it saves you when developing for both platforms, as the learning curve is singleton- it happens only once, and the code stays very similar so developers don't have to go around and re-invent the app to produce the same output with a different library. (And that's not even considering the fact that there's not really another good choice out there currently...)
 
 ## Having trouble running the demo?
 
-- `ChartsDemo/ChartsDemo.xcodeproj` is the demo project for iOS/tvOS
-- `ChartsDemo-OSX/ChartsDemo-OSX.xcodeproj` is the demo project for macOS
+- `ChartsDemo/ChartsDemo.xcodeproj` is the demo project for iOS
 - Make sure you are running a supported version of Xcode.
   - Usually it is specified here a few lines above.
   - In most cases it will be the latest Xcode version.
 - Make sure that your project supports Swift 5.0
-- Optional: Run `carthage checkout` in the project folder, to fetch dependencies (i.e testing dependencies).
-  - If you don't have Carthage - you can get it [here](https://github.com/Carthage/Carthage/releases).
 
 ## Usage
 
@@ -81,31 +70,13 @@ Want your tutorial to show here? Create a PR!
 - Search in the issues
 - Try to politely ask in the issues section
 
-## CocoaPods Install
-
-Add `pod 'DGCharts'` to your Podfile. "DGCharts" is the name of the library.  
-For [Realm](https://realm.io/) support, please add `pod 'ChartsRealm'` too.
-
-**Note:** ~~`pod 'ios-charts'`~~ is not the correct library, and refers to a different project by someone else.
-
-## Carthage Install
-
-DGCharts now include Carthage prebuilt binaries.
-
-```carthage
-github "danielgindi/Charts" == 5.1.0
-github "danielgindi/Charts" ~> 5.1.0
-```
-
-In order to build the binaries for a new release, use `carthage build --no-skip-current && carthage archive Charts`.
-
 ## Swift Package Manager Install
 
 Swift Package Manager
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/danielgindi/Charts.git", .upToNextMajor(from: "5.1.0"))
+    .package(url: "https://github.com/mvp-sales/Charts.git", .upToNextMajor(from: "6.0.0"))
 ]
 ```
 
